@@ -11,7 +11,9 @@ import SwiftUI
 struct BirthdayTestAppSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ChildInputView(viewModel: .init())
         }
     }
 }
+
+
