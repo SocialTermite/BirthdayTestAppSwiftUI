@@ -16,6 +16,9 @@
 		E83F41972B5FFD1100650666 /* DatePickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41962B5FFD1100650666 /* DatePickerTextField.swift */; };
 		E83F41992B5FFD3200650666 /* OrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41982B5FFD3200650666 /* OrangeButton.swift */; };
 		E83F419D2B5FFD9C00650666 /* ChildInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F419C2B5FFD9C00650666 /* ChildInputViewModel.swift */; };
+		E83F41A22B60019B00650666 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41A12B60019B00650666 /* UserDefaultsStorage.swift */; };
+		E83F41A42B6001A600650666 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41A32B6001A600650666 /* Storage.swift */; };
+		E83F41A72B6001CB00650666 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41A62B6001CB00650666 /* Child.swift */; };
 		E85C0CF92B5FADB900BABC26 /* BirthdayTestAppSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C0CF82B5FADB900BABC26 /* BirthdayTestAppSwiftUIApp.swift */; };
 		E85C0CFB2B5FADB900BABC26 /* ChildInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C0CFA2B5FADB900BABC26 /* ChildInputView.swift */; };
 		E85C0CFD2B5FADBB00BABC26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E85C0CFC2B5FADBB00BABC26 /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 		E83F41962B5FFD1100650666 /* DatePickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTextField.swift; sourceTree = "<group>"; };
 		E83F41982B5FFD3200650666 /* OrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeButton.swift; sourceTree = "<group>"; };
 		E83F419C2B5FFD9C00650666 /* ChildInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildInputViewModel.swift; sourceTree = "<group>"; };
+		E83F41A12B60019B00650666 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		E83F41A32B6001A600650666 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		E83F41A62B6001CB00650666 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
 		E85C0CF52B5FADB900BABC26 /* BirthdayTestAppSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayTestAppSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E85C0CF82B5FADB900BABC26 /* BirthdayTestAppSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTestAppSwiftUIApp.swift; sourceTree = "<group>"; };
 		E85C0CFA2B5FADB900BABC26 /* ChildInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildInputView.swift; sourceTree = "<group>"; };
@@ -83,6 +89,8 @@
 		E83F419E2B5FFDCE00650666 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E83F41A52B6001C200650666 /* Models */,
+				E83F41A02B60018E00650666 /* Storage */,
 				E83F419F2B5FFDDE00650666 /* Theme */,
 				E83F41902B5FFCBB00650666 /* Extensions.swift */,
 			);
@@ -96,6 +104,23 @@
 				E83F418B2B5FFC2800650666 /* ThemeManager.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		E83F41A02B60018E00650666 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				E83F41A12B60019B00650666 /* UserDefaultsStorage.swift */,
+				E83F41A32B6001A600650666 /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		E83F41A52B6001C200650666 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E83F41A62B6001CB00650666 /* Child.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E85C0CEC2B5FADB900BABC26 = {
@@ -208,6 +233,7 @@
 				E83F41972B5FFD1100650666 /* DatePickerTextField.swift in Sources */,
 				E83F418A2B5FFC1300650666 /* Theme.swift in Sources */,
 				E83F418F2B5FFC9A00650666 /* NameInputView.swift in Sources */,
+				E83F41A22B60019B00650666 /* UserDefaultsStorage.swift in Sources */,
 				E83F418C2B5FFC2800650666 /* ThemeManager.swift in Sources */,
 				E85C0CF92B5FADB900BABC26 /* BirthdayTestAppSwiftUIApp.swift in Sources */,
 				E83F41952B5FFCF600650666 /* InputWithError.swift in Sources */,
@@ -215,6 +241,8 @@
 				E83F419D2B5FFD9C00650666 /* ChildInputViewModel.swift in Sources */,
 				E83F41912B5FFCBB00650666 /* Extensions.swift in Sources */,
 				E83F41932B5FFCD900650666 /* DateInputView.swift in Sources */,
+				E83F41A72B6001CB00650666 /* Child.swift in Sources */,
+				E83F41A42B6001A600650666 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

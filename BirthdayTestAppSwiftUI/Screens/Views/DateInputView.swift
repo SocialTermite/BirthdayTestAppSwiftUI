@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DateInputView: View {
     @Binding var date: Date?
-    @State var mock: String = ""
+    
     var body: some View {
         InputViewWithError(input: $date,
                            inputView: datePicker,
@@ -19,6 +19,6 @@ struct DateInputView: View {
     }
     
     var datePicker: some View {
-        TextField("Tap to input", text: $mock)
+        DatePickerTextField(selectedDate: $date, placeHolder: "Tap to input")
     }
 }
