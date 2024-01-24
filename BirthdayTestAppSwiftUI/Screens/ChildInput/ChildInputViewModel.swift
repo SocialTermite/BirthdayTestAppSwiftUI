@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 class ChildInputViewModel: ObservableObject {
-    private let storage: Storage
+    let storage: Storage
 
     @Published var name: String? {
         didSet {
@@ -54,6 +54,15 @@ class ChildInputViewModel: ObservableObject {
         
     init(storage: Storage) {
         self.storage = storage
+        child = storage.retrieveChild()
+        portrait = child?.image
+        name = child?.name
+        birthday = child?.birthday
+    }
+    
+    func refresh() {
+        child = storage.retrieveChild()
+        portrait = child?.image
     }
     
     func clearAll() {

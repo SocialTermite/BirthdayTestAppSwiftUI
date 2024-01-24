@@ -27,3 +27,8 @@ struct NameInputView: View {
             .autocapitalization(.words)
     }
 }
+
+#Preview {
+    @State var name: String?
+    return NameInputView(name: $name, placeholder: "input", isNameCorrect: true)
+}

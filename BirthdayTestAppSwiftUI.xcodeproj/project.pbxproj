@@ -19,10 +19,15 @@
 		E83F41A22B60019B00650666 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41A12B60019B00650666 /* UserDefaultsStorage.swift */; };
 		E83F41A42B6001A600650666 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41A32B6001A600650666 /* Storage.swift */; };
 		E83F41A72B6001CB00650666 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41A62B6001CB00650666 /* Child.swift */; };
+		E83F41A92B60069800650666 /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41A82B60069800650666 /* BirthdayView.swift */; };
+		E83F41AC2B601D7B00650666 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F41AB2B601D7B00650666 /* Constants.swift */; };
 		E85C0CF92B5FADB900BABC26 /* BirthdayTestAppSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C0CF82B5FADB900BABC26 /* BirthdayTestAppSwiftUIApp.swift */; };
 		E85C0CFB2B5FADB900BABC26 /* ChildInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C0CFA2B5FADB900BABC26 /* ChildInputView.swift */; };
 		E85C0CFD2B5FADBB00BABC26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E85C0CFC2B5FADBB00BABC26 /* Assets.xcassets */; };
 		E85C0D002B5FADBB00BABC26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E85C0CFF2B5FADBB00BABC26 /* Preview Assets.xcassets */; };
+		E8FC5F142B6119EC00C4C132 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FC5F132B6119EC00C4C132 /* BirthdayViewModel.swift */; };
+		E8FC5F162B611A0D00C4C132 /* PortraitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FC5F152B611A0D00C4C132 /* PortraitView.swift */; };
+		E8FC5F182B611A2100C4C132 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FC5F172B611A2100C4C132 /* InputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,11 +43,16 @@
 		E83F41A12B60019B00650666 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		E83F41A32B6001A600650666 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		E83F41A62B6001CB00650666 /* Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Child.swift; sourceTree = "<group>"; };
+		E83F41A82B60069800650666 /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
+		E83F41AB2B601D7B00650666 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E85C0CF52B5FADB900BABC26 /* BirthdayTestAppSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayTestAppSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E85C0CF82B5FADB900BABC26 /* BirthdayTestAppSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayTestAppSwiftUIApp.swift; sourceTree = "<group>"; };
 		E85C0CFA2B5FADB900BABC26 /* ChildInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildInputView.swift; sourceTree = "<group>"; };
 		E85C0CFC2B5FADBB00BABC26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E85C0CFF2B5FADBB00BABC26 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E8FC5F132B6119EC00C4C132 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
+		E8FC5F152B611A0D00C4C132 /* PortraitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitView.swift; sourceTree = "<group>"; };
+		E8FC5F172B611A2100C4C132 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +74,8 @@
 				E83F41942B5FFCF600650666 /* InputWithError.swift */,
 				E83F41962B5FFD1100650666 /* DatePickerTextField.swift */,
 				E83F41982B5FFD3200650666 /* OrangeButton.swift */,
+				E8FC5F152B611A0D00C4C132 /* PortraitView.swift */,
+				E8FC5F172B611A2100C4C132 /* InputView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -72,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				E83F419B2B5FFD9000650666 /* ChildInput */,
+				E83F41AA2B60069C00650666 /* BirthdayView */,
 				E83F418D2B5FFC8900650666 /* Views */,
 			);
 			path = Screens;
@@ -93,6 +106,7 @@
 				E83F41A02B60018E00650666 /* Storage */,
 				E83F419F2B5FFDDE00650666 /* Theme */,
 				E83F41902B5FFCBB00650666 /* Extensions.swift */,
+				E83F41AB2B601D7B00650666 /* Constants.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -121,6 +135,15 @@
 				E83F41A62B6001CB00650666 /* Child.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E83F41AA2B60069C00650666 /* BirthdayView */ = {
+			isa = PBXGroup;
+			children = (
+				E83F41A82B60069800650666 /* BirthdayView.swift */,
+				E8FC5F132B6119EC00C4C132 /* BirthdayViewModel.swift */,
+			);
+			path = BirthdayView;
 			sourceTree = "<group>";
 		};
 		E85C0CEC2B5FADB900BABC26 = {
@@ -229,18 +252,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E83F41A92B60069800650666 /* BirthdayView.swift in Sources */,
 				E85C0CFB2B5FADB900BABC26 /* ChildInputView.swift in Sources */,
+				E8FC5F142B6119EC00C4C132 /* BirthdayViewModel.swift in Sources */,
 				E83F41972B5FFD1100650666 /* DatePickerTextField.swift in Sources */,
 				E83F418A2B5FFC1300650666 /* Theme.swift in Sources */,
 				E83F418F2B5FFC9A00650666 /* NameInputView.swift in Sources */,
 				E83F41A22B60019B00650666 /* UserDefaultsStorage.swift in Sources */,
 				E83F418C2B5FFC2800650666 /* ThemeManager.swift in Sources */,
+				E83F41AC2B601D7B00650666 /* Constants.swift in Sources */,
 				E85C0CF92B5FADB900BABC26 /* BirthdayTestAppSwiftUIApp.swift in Sources */,
 				E83F41952B5FFCF600650666 /* InputWithError.swift in Sources */,
 				E83F41992B5FFD3200650666 /* OrangeButton.swift in Sources */,
+				E8FC5F182B611A2100C4C132 /* InputView.swift in Sources */,
 				E83F419D2B5FFD9C00650666 /* ChildInputViewModel.swift in Sources */,
 				E83F41912B5FFCBB00650666 /* Extensions.swift in Sources */,
 				E83F41932B5FFCD900650666 /* DateInputView.swift in Sources */,
+				E8FC5F162B611A0D00C4C132 /* PortraitView.swift in Sources */,
 				E83F41A72B6001CB00650666 /* Child.swift in Sources */,
 				E83F41A42B6001A600650666 /* Storage.swift in Sources */,
 			);

@@ -10,28 +10,33 @@ import Foundation
 class UserDefaultStorage: Storage {
     private let childKey = "child_key"
     private let userDefaults = UserDefaults.standard
-    
-    private var child: Child?
-    
-    init() {
-        child = retrieveChild() ?? .init(name: "Cristiano Ronaldo", birthday: Date(timeIntervalSince1970: 1618605464), image: nil)
-    }
-    
+
+    init() { }
+
     func store(child: Child) {
-        self.child = child
-        if let data = try? JSONEncoder().encode(child) {
+        do {
+            let data = try JSONEncoder().encode(child)
             userDefaults.set(data, forKey: childKey)
+        } catch {
+            // Handle encoding error
+            print("Error encoding child: \(error)")
         }
     }
-    
+
     func retrieveChild() -> Child? {
-        guard let storedData = userDefaults.data(forKey: childKey),
-              let loadedChild = try? JSONDecoder().decode(Child.self, from: storedData) else {
-            return nil
+        do {
+            if let storedData = userDefaults.data(forKey: childKey) {
+                let loadedChild = try JSONDecoder().decode(Child.self, from: storedData)
+                return loadedChild
+            }
+        } catch {
+            // Handle decoding error
+            print("Error decoding child: \(error)")
         }
-        return loadedChild
+
+        return nil
     }
-    
+
     func clearAll() {
         userDefaults.removeObject(forKey: childKey)
     }

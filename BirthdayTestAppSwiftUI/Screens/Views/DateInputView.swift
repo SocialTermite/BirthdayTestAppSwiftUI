@@ -22,3 +22,8 @@ struct DateInputView: View {
         DatePickerTextField(selectedDate: $date, placeHolder: "Tap to input")
     }
 }
+
+#Preview {
+    @State var date: Date?
+    return DateInputView(date: $date)
+}

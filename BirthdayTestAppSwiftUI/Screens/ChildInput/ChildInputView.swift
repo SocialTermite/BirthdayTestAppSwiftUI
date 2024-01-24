@@ -13,6 +13,58 @@ struct ChildInputView: View {
     
     @State private var isDatePickerVisible = false
     @State private var isPhotoPickerPresented = false
+    @State private var navigateToBirthdayScreen = false
+    
+    var body: some View {
+        VStack {
+            NavigationStack {
+                VStack {
+                    Image(uiImage: viewModel.portrait ??  ThemeManager.shared.theme.fullPortraitPlaceholderImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 160, height: 160)
+                        .clipShape(Circle())
+                    
+                    Spacer()
+                        .frame(height: 40)
+                    
+                    InputView(name: $viewModel.name,
+                              birthday: $viewModel.birthday,
+                              portrait: $viewModel.portrait,
+                              isPhotoPickerPresented: $isPhotoPickerPresented,
+                              isChildInfoIsFullFiled: viewModel.isChildInfoIsFullFiled,
+                              clearAll: {
+                        viewModel.clearAll()
+                    })
+                    .showPhotosPicker(isPresented: $isPhotoPickerPresented,
+                                      maxSelectionCount: 1) { image in
+                        viewModel.portrait = image
+                    }
+                    
+                    Spacer()
+                    
+                    OrangeButton(text: "Show birthday screen", disabled: !viewModel.isChildInfoIsFullFiled) {
+                        navigateToBirthdayScreen = true
+                    }
+                }
+                .padding(.horizontal, 30)
+                .background(Color(ThemeManager.shared.theme.light))
+                .navigationTitle("nanit")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationDestination(isPresented: $navigateToBirthdayScreen) {
+                    BirthdayView(viewModel: .init(storage: viewModel.storage)) { portrait in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            viewModel.portrait = portrait
+                        }
+                        
+                    }
+                }
+            }
+            .onAppear {
+                viewModel.refresh()
+            }
+        }
+    }
     
     var dateBinding: Binding<String> {
         Binding {
@@ -20,74 +72,6 @@ struct ChildInputView: View {
             dateFormatter.dateFormat = "dd MMMM yyyy"
             return dateFormatter.string(from: viewModel.birthday ?? Date())
         } set: { newValue in
-        }
-    }
-    
-    var body: some View {
-        VStack {
-            VStack {
-                Image(uiImage: viewModel.portrait ??  ThemeManager.shared.theme.fullPortraitPlaceholderImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 160, height: 160)
-                    .clipShape(Circle())
-                Spacer()
-                    .frame(height: 40)
-                VStack(spacing: 20) {
-                    NameInputView(name: $viewModel.name,
-                                  placeholder: "Type child name",
-                                  isNameCorrect: true)
-                    
-                    DateInputView(date: $viewModel.birthday)
-                    
-                    OrangeButton(text: "Change portrait") {
-                        isPhotoPickerPresented.toggle()
-                    }
-                    
-                    if viewModel.isChildInfoIsFullFiled {
-                        OrangeButton(text: "Clear All") {
-                            viewModel.clearAll()
-                        }
-                    }
-                }
-                .photosPicker(
-                    isPresented: $isPhotoPickerPresented,
-                    selection: Binding<[PhotosPickerItem]>(
-                        get: { [] },
-                        set: { selectedPhotos in
-                            if let selectedPhoto = selectedPhotos.first {
-                                loadImage(from: selectedPhoto)
-                            }
-                        }
-                    ),
-                    maxSelectionCount: 1,
-                    matching: .images
-                )
-                
-                Spacer()
-                
-                OrangeButton(text: "Show birthday screen", disabled: !viewModel.isChildInfoIsFullFiled) {
-                    
-                }
-            }.padding(.horizontal, 30)
-        }
-        .padding()
-        .background(Color(ThemeManager.shared.theme.light))
-    }
-    
-    private func loadImage(from photoItem: PhotosPickerItem) {
-        photoItem.loadTransferable(type: Data.self) { result in
-            switch result {
-            case .success(let data):
-                if let data = data,
-                   let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        viewModel.portrait = image
-                    }
-                }
-            case .failure(let error):
-                print("Error loading image data: \(error)")
-            }
         }
     }
 }
