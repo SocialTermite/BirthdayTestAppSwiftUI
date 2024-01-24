@@ -12,6 +12,7 @@ struct BirthdayView: View {
     var refresh: ((UIImage?) -> Void)?
     @Environment(\.presentationMode) var presentationMode
     @State private var isPhotoPickerPresented: Bool = false
+    @State private var hideForScreenCapture = false
     
     var body: some View {
         VStack {
@@ -22,8 +23,8 @@ struct BirthdayView: View {
                     main
                     Spacer()
                 }
-                
                 backButton
+                    .opacity(hideForScreenCapture ? 0 : 1)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(ThemeManager.shared.theme.light))
@@ -59,6 +60,8 @@ struct BirthdayView: View {
                 ZStack {
                     PortraitView(portrait: $viewModel.portrait)
                     changePortraitButton
+                        .opacity(hideForScreenCapture ? 0 : 1)
+                    
                 }
                 
                 Image(.logo)
@@ -69,8 +72,10 @@ struct BirthdayView: View {
                     .frame(maxHeight: 45)
                 
                 OrangeButton(text: "Share the news", image: .shareIcon) {
-                    // Action for the button
+                    print(takeScreenshot())
                 }.frame(width: 179)
+                    .opacity(hideForScreenCapture ? 0 : 1)
+                
                 
             }
             Spacer(minLength: 50)
@@ -78,6 +83,30 @@ struct BirthdayView: View {
         .showPhotosPicker(isPresented: $isPhotoPickerPresented,
                           maxSelectionCount: 1) { image in
             viewModel.portrait = image
+        }
+    }
+    
+    func takeScreenshot() {
+        hideForScreenCapture = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let window = windowScene.windows.first else {
+                return
+            }
+            
+            let renderer = UIGraphicsImageRenderer(size: window.bounds.size)
+            let image = renderer.image { context in
+                window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
+            }
+            hideForScreenCapture = false
+            
+            let activityViewController = UIActivityViewController(
+                activityItems: [image],
+                applicationActivities: nil
+            )
+            
+            windowScene.windows.first?.rootViewController?
+                .present(activityViewController, animated: true, completion: nil)
         }
     }
     
