@@ -10,8 +10,9 @@ import SwiftUI
 class BirthdayViewModel: ObservableObject {
     private let storage: Storage
     
-    private var child: Child {
+    private lazy var child: Child = storage.retrieveChild() ?? .init(name: "ERROR", birthday: .now, image: nil) {
         didSet {
+            guard child != oldValue else { return }
             storage.store(child: child)
         }
     }
@@ -39,6 +40,9 @@ class BirthdayViewModel: ObservableObject {
     
     init(storage: Storage) {
         self.storage = storage
+    }
+    
+    func refresh() {
         if let child = storage.retrieveChild() {
             self.child = child
         } else {

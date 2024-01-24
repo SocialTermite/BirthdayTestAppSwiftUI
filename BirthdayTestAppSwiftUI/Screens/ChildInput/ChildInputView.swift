@@ -56,7 +56,6 @@ struct ChildInputView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             viewModel.portrait = portrait
                         }
-                        
                     }
                 }
             }

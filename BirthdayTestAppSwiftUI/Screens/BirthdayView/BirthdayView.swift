@@ -29,6 +29,9 @@ struct BirthdayView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(ThemeManager.shared.theme.light))
         }
+        .onAppear {
+            viewModel.refresh()
+        }
         .navigationBarHidden(true)
     }
     

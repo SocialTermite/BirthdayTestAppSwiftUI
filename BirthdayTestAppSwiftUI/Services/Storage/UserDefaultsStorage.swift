@@ -10,13 +10,17 @@ import Foundation
 class UserDefaultStorage: Storage {
     private let childKey = "child_key"
     private let userDefaults = UserDefaults.standard
-
+    
+    private var child: Child?
+    
     init() { }
 
     func store(child: Child) {
+        self.child = child
         do {
             let data = try JSONEncoder().encode(child)
             userDefaults.set(data, forKey: childKey)
+            userDefaults.synchronize()
         } catch {
             // Handle encoding error
             print("Error encoding child: \(error)")
@@ -24,9 +28,13 @@ class UserDefaultStorage: Storage {
     }
 
     func retrieveChild() -> Child? {
+        if let child {
+            return child
+        }
         do {
             if let storedData = userDefaults.data(forKey: childKey) {
                 let loadedChild = try JSONDecoder().decode(Child.self, from: storedData)
+                self.child = loadedChild
                 return loadedChild
             }
         } catch {
@@ -39,5 +47,8 @@ class UserDefaultStorage: Storage {
 
     func clearAll() {
         userDefaults.removeObject(forKey: childKey)
+        userDefaults.setNilValueForKey(childKey)
+        userDefaults.synchronize()
+        child = nil
     }
 }
